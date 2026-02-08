@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Simple Calculator</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background-color: #c3dae6;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        
+        .calculator {
+            background-color: rgb(214, 184, 184);
+            padding: 25px;
+            border: 2px solid black;
+            border-radius: 10px;
+            width: 260px;
+        }
+        
+        h2 {
+            text-align: center;
+            color: rgb(1, 1, 24);
+        }
+        
+        input {
+            width: 95%;
+            height: 50px;
+            font-size: 30px;
+            margin-bottom: 19px;
+            text-align: right;
+            padding-right: 8px;
+            border-color: #eb0f0f;
+        }
+        
+        .row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 12px;
+        }
+        
+        button {
+            width: 70px;
+            height: 40px;
+            font-size: 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+        .num {
+            background-color: #64b7ef;
+            border-color: #c11532;
+        }
+        
+        .op {
+            background-color: #f8ec06;
+        }
+        
+        .equal {
+            background-color: #38d97e;
+            width: 60%;
+        }
+        
+        .clear {
+            background-color: #eb0f0f;
+            width: 30%;
+        }
+        
+        .empty {
+            visibility: hidden;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="calculator">
+        <h2>CALCULATOR</h2>
+
+        <input type="text" id="display" readonly>
+        <hr>
+        <div class="row">
+            <button class="num" onclick="calc.add('7')">7</button>
+            <button class="num" onclick="calc.add('8')">8</button>
+            <button class="num" onclick="calc.add('9')">9</button>
+        </div>
+        <hr>
+        <div class="row">
+            <button class="num" onclick="calc.add('4')">4</button>
+            <button class="num" onclick="calc.add('5')">5</button>
+            <button class="num" onclick="calc.add('6')">6</button>
+        </div>
+        <hr>
+
+        <div class="row">
+            <button class="num" onclick="calc.add('1')">1</button>
+            <button class="num" onclick="calc.add('2')">2</button>
+            <button class="num" onclick="calc.add('3')">3</button>
+        </div>
+        <hr>
+
+        <div class="row">
+            <button class="num" onclick="calc.add('0')">0</button>
+        </div>
+        <hr>
+        <hr>
+
+        <div class="row">
+            <button class="op" onclick="calc.add('+')">+</button>
+            <button class="op" onclick="calc.add('-')">-</button>
+            <button class="op" onclick="calc.add('*')">*</button>
+        </div>
+
+        <hr>
+        <div class="row">
+            <button class="op" onclick="calc.add('/')">/</button>
+            <button class="op" onclick="calc.add('**')">^</button>
+            <button class="op" onclick="calc.add('%')">%</button>
+        </div>
+        <hr>
+        <hr>
+        <div class="row">
+            <button class="equal" onclick="calc.calculate()">=</button>
+            <button class="clear" onclick="calc.clear()">C</button>
+        </div>
+    </div>
+    <hr>
+    <hr>
+
+    <script>
+        const calc = {
+            add: function(value) {
+                document.getElementById("display").value += value;
+            },
+            calculate: function() {
+                try {
+                    document.getElementById("display").value =
+                        eval(document.getElementById("display").value);
+                } catch {
+                    alert("Invalid Expression");
+                }
+            },
+            clear: function() {
+                document.getElementById("display").value = "";
+            }
+        };
+    </script>
+
+</body>
+
+</html>
