@@ -1,2 +1,2 @@
 # input-output-in-js-calculator-full-stack-
-creating a pag eto show real time outputs in a webpage demostrating a calculator 
+creating a page to show real time outputs in a webpage demonstrating a calculator 
